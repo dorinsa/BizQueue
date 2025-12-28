@@ -3,6 +3,8 @@ const cors = require("cors");
 const morgan = require("morgan");
 const authRoutes = require("./routes/auth.routes");
 const { auth } = require("./middlewares/auth");
+const businessRoutes = require("./routes/business.routes");
+const servicesRoutes = require("./routes/services.routes");
 
 
 
@@ -21,6 +23,12 @@ app.get("/api/me", auth, (req, res) => {
 
 
 app.use("/api/auth", authRoutes);
+
+app.use("/api/business", businessRoutes);
+
+app.use("/api/services", servicesRoutes);
+
+
 
 
 module.exports = { app };
